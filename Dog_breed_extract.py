@@ -4,7 +4,7 @@ all_unique_breed = []
 df = pd.read_csv('2017.csv') #reading the csv
 
 # It will print the total number of items in a column
-print("total length",len(df['ValidDate']))
+print("total rows",len(df))
 
 #all_breed will get all the breeds
 all_breed=df['Breed']
