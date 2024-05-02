@@ -1,27 +1,23 @@
 import pandas as pd
-df = pd.read_csv('2017.csv')
-# print(df.head)
-print(df['ValidDate'])
-print(df[df['ValidDate'] != " "])
-all_dat=df[df['ValidDate'] != " "]
-print("alldog bree", all_dat['Breed'])
+all_unique_breed = []
 
-# data = dataset.iloc[:,1,:2].values
-# print(data)
+df = pd.read_csv('2017.csv') #reading the csv
+
+# It will print the total number of items in a column
+print("total length",len(df['ValidDate']))
+
+#all_breed will get all the breeds
+all_breed=df['Breed']
+
+# for loop is for getting each breed from  all the breeds
+for breed in all_breed:
+    breed = breed.strip() # it will remove the whitespace from the string
+
+    # it checks whether breed is already stored in all_unique_breed list or not. if it is not stored then it will append to the list
+    if breed.lower() not in all_unique_breed:
+        all_unique_breed.append(breed.lower()) #breed.lower will convert uppercase to lowercase
+
+print("all unique breeds are", all_unique_breed) #print all unique breeds
+print("total unique breed",len(all_unique_breed)) # print total unique breeds
 
 
-# import csv
-#
-# with open('2017.csv') as csvfile:
-#     heading = next(csvfile)
-#     csv_reader = csv.reader(csvfile)
-#     for row in csv_reader:
-#         print(row)
-
-
-# f= open('2017.csv','r')
-# ro= csv.reader(f,delimiter= ',')
-# ld= list(ro)
-# for row in ld:
-#     print(row[3])
-    # print(row)
